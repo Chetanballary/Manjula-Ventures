@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sparkles, Phone, Mail } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Logo } from './logo';
 
 const navLinks = [
   { label: 'Services', href: '#services' },
@@ -37,11 +38,9 @@ export function Navbar() {
             : 'border-b border-transparent bg-transparent'
         )}
       >
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <a href="#hero" className="group flex items-center gap-2">
-            <span className="text-lg font-bold tracking-tight text-gradient-primary sm:text-xl">
-              MANJULA VENTURES
-            </span>
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
+          <a href="#hero" className="group flex items-center">
+            <Logo size="md" />
           </a>
 
           <div className="hidden items-center gap-8 lg:flex">
@@ -94,8 +93,8 @@ export function Navbar() {
               className="absolute right-0 top-0 h-full w-80 border-l border-slate-200 bg-white p-6 shadow-xl overflow-y-auto"
             >
               <div className="flex items-center justify-between">
-                <span className="text-gradient-primary text-lg font-bold">MANJULA</span>
-                <button onClick={() => setMobileOpen(false)} aria-label="Close menu">
+                <Logo size="sm" showTagline={true} />
+                <button onClick={() => setMobileOpen(false)} aria-label="Close menu" className="p-1.5 rounded-lg hover:bg-slate-100">
                   <X className="h-6 w-6 text-slate-700" />
                 </button>
               </div>

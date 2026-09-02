@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, Sparkles, Heart, MessageCircle, Share2, Bookmark } from 'lucide-react';
 import { GlowBlob } from './shared';
+import { LogoIcon } from './logo';
 
 export function Hero() {
   return (
@@ -20,10 +21,10 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-sm font-medium text-sky-700"
+              className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/80 shadow-sm px-4 py-2 text-sm font-medium text-slate-800 backdrop-blur-sm"
             >
-              <Sparkles className="h-4 w-4" />
-              Helping You to Digitally Grow
+              <LogoIcon className="h-4 w-4" mColor="#0F172A" vColor="#7A0C16" />
+              <span className="italic text-[#7A0C16] font-semibold">“Helping You to Digitally Grow”</span>
             </motion.div>
 
             <motion.h1
@@ -127,7 +128,9 @@ function PhoneMockup() {
           {/* App header */}
           <div className="flex items-center justify-between px-4 pb-3">
             <div className="flex items-center gap-2">
-              <div className="h-7 w-7 rounded-full bg-gradient-to-br from-sky-500 to-teal-500" />
+              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-900 p-1 shadow-sm">
+                <LogoIcon className="h-4 w-4" mColor="#FFFFFF" vColor="#E11D48" />
+              </div>
               <span className="text-xs font-bold text-slate-800">@manjulaventures</span>
             </div>
             <div className="flex gap-3 text-slate-400">

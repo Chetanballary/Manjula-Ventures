@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { GlowBlob } from './shared';
 import { supabase } from '@/lib/supabase';
+import { Logo } from './logo';
 
 type FormState = {
   name: string;
@@ -208,8 +209,8 @@ export function ContactFooter() {
       <footer className="relative mt-20 border-t border-slate-200 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-            <div className="flex flex-col items-center gap-3 md:items-start">
-              <span className="text-gradient-primary text-xl font-bold">MANJULA VENTURES</span>
+            <div className="flex flex-col items-center gap-4 md:items-start">
+              <Logo size="md" showTagline={true} />
               <div className="flex flex-wrap items-center justify-center gap-2 md:justify-start">
                 <a
                   href="tel:6361343593"

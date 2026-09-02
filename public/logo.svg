@@ -1,0 +1,19 @@
+<svg width="400" height="240" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Monogram Icon -->
+  <g transform="translate(40, 30)">
+    <!-- 'M' letter in deep slate -->
+    <path d="M0 10H16V80H0V10Z" fill="#0F172A"/>
+    <path d="M16 10L42 54L33 68L8 27V10H16Z" fill="#0F172A"/>
+    <path d="M42 54L58 24H44L35 41L42 54Z" fill="#0F172A"/>
+    
+    <!-- 'V' letter in signature maroon -->
+    <path d="M38 41L54 75L86 10H68L50 49L38 41Z" fill="#7A0C16"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="145" y="68" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="34" fill="#0F172A" letter-spacing="1">MANJULA</text>
+  <text x="145" y="105" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="34" fill="#7A0C16" letter-spacing="1">VENTURES</text>
+
+  <!-- Tagline -->
+  <text x="50" y="170" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="20" fill="#7A0C16" font-style="italic">“Helping You to Digitally Grow”</text>
+</svg>
