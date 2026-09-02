@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X, Sparkles, Phone, Mail } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
@@ -91,7 +91,7 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-0 h-full w-72 border-l border-slate-200 bg-white p-6 shadow-xl"
+              className="absolute right-0 top-0 h-full w-80 border-l border-slate-200 bg-white p-6 shadow-xl overflow-y-auto"
             >
               <div className="flex items-center justify-between">
                 <span className="text-gradient-primary text-lg font-bold">MANJULA</span>
@@ -113,11 +113,29 @@ export function Navbar() {
                 <a
                   href="#contact"
                   onClick={() => setMobileOpen(false)}
-                  className="mt-4 inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-sky-500 to-teal-500 px-5 py-3 text-sm font-semibold text-white"
+                  className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-sky-500 to-teal-500 px-5 py-3 text-sm font-semibold text-white"
                 >
                   <Sparkles className="h-4 w-4" />
                   Get Started
                 </a>
+
+                <div className="mt-6 border-t border-slate-100 pt-6 flex flex-col gap-3">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">Direct Contact</p>
+                  <a
+                    href="tel:6361343593"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-sky-600"
+                  >
+                    <Phone className="h-4 w-4 text-sky-600" />
+                    +91 6361343593
+                  </a>
+                  <a
+                    href="mailto:manjulasureshballary@gmail.com"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-sky-600 break-all"
+                  >
+                    <Mail className="h-4 w-4 text-sky-600 shrink-0" />
+                    manjulasureshballary@gmail.com
+                  </a>
+                </div>
               </div>
             </motion.div>
           </motion.div>

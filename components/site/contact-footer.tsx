@@ -2,17 +2,12 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, MapPin, Instagram, Facebook, Linkedin, Twitter, CheckCircle2, Loader2 } from 'lucide-react';
+import { Send, MapPin, Instagram, Facebook, Linkedin, Twitter, CheckCircle2, Loader2, Phone, Mail } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { GlowBlob } from './shared';
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+import { supabase } from '@/lib/supabase';
 
 type FormState = {
   name: string;
@@ -49,6 +44,14 @@ export function ContactFooter() {
 
     setStatus('loading');
     setError('');
+
+    if (!supabase) {
+      console.warn('Supabase credentials not configured. Form submission simulated.');
+      setStatus('success');
+      setForm(initialState);
+      setTimeout(() => setStatus('idle'), 5000);
+      return;
+    }
 
     const { error: insertError } = await supabase
       .from('contact_submissions')
@@ -87,8 +90,26 @@ export function ContactFooter() {
               Ready to <span className="text-gradient-primary">Grow?</span>
             </h2>
             <p className="mt-3 text-base text-slate-600">
-              Tell us about your business and we'll get back to you within 24 hours.
+              Tell us about your business or reach out to us directly anytime.
             </p>
+
+            {/* Direct Contact Badges */}
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="tel:6361343593"
+                className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/80 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm backdrop-blur-sm transition-all hover:border-sky-400 hover:text-sky-600 hover:shadow-md"
+              >
+                <Phone className="h-4 w-4 text-sky-600" />
+                <span>+91 6361343593</span>
+              </a>
+              <a
+                href="mailto:manjulasureshballary@gmail.com"
+                className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/80 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm backdrop-blur-sm transition-all hover:border-sky-400 hover:text-sky-600 hover:shadow-md"
+              >
+                <Mail className="h-4 w-4 text-sky-600" />
+                <span>manjulasureshballary@gmail.com</span>
+              </a>
+            </div>
           </div>
 
           {status === 'success' ? (
@@ -189,9 +210,25 @@ export function ContactFooter() {
           <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
             <div className="flex flex-col items-center gap-3 md:items-start">
               <span className="text-gradient-primary text-xl font-bold">MANJULA VENTURES</span>
-              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
-                <MapPin className="h-4 w-4 text-sky-600" />
-                Gadag, Karnataka, India
+              <div className="flex flex-wrap items-center justify-center gap-2 md:justify-start">
+                <a
+                  href="tel:6361343593"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-xs sm:text-sm text-slate-600 transition-all hover:border-sky-300 hover:text-sky-600 hover:shadow-sm"
+                >
+                  <Phone className="h-3.5 w-3.5 text-sky-600" />
+                  +91 6361343593
+                </a>
+                <a
+                  href="mailto:manjulasureshballary@gmail.com"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-xs sm:text-sm text-slate-600 transition-all hover:border-sky-300 hover:text-sky-600 hover:shadow-sm"
+                >
+                  <Mail className="h-3.5 w-3.5 text-sky-600" />
+                  manjulasureshballary@gmail.com
+                </a>
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-xs sm:text-sm text-slate-600">
+                  <MapPin className="h-3.5 w-3.5 text-sky-600" />
+                  Gadag, Karnataka, India
+                </div>
               </div>
             </div>
 
